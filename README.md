@@ -1,6 +1,6 @@
 # Laravel Device View
 
-Dynamically change the view based on the visitor's device.
+Dynamically change Laravel views based on the visitor's device.
 
 ## Installation
 
