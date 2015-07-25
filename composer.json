@@ -1,0 +1,31 @@
+{
+  "name": "torann/device-view",
+  "description": "Provides support for device based view layouts in Laravel.",
+  "keywords": ["laravel", "view", "themes"],
+  "license": "BSD 2-Clause",
+  "authors": [
+    {
+      "name": "Daniel Stainback",
+      "email": "daniel@lyften.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/support": "~5.1",
+    "mobiledetect/mobiledetectlib": "2.*"
+  },
+  "require-dev": {
+    "mockery/mockery": "0.7.x",
+    "phpunit/phpunit": "3.7.x"
+  },
+  "autoload": {
+    "psr-4": {
+      "Torann\\DeviceView\\": "src/Torann/DeviceView"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1-dev"
+    }
+  }
+}
