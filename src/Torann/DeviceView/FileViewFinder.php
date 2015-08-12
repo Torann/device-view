@@ -169,6 +169,38 @@ class FileViewFinder extends \Illuminate\View\FileViewFinder
     }
 
     /**
+     * Return user's platform.
+     *
+     * @return string
+     */
+    public function getPlatform()
+    {
+        $userAgent = $_SERVER['HTTP_USER_AGENT'];
+
+        $os_array = [
+            'iphone' => 'ios',
+            'ipod' => 'ios',
+            'ipad' => 'ios',
+            'windows' => 'windows',
+            'macintosh|mac os x' => 'os-x',
+            'mac_powerpc'  => 'os-9',
+            'linux' => 'linux',
+            'ubuntu' => 'ubuntu',
+            'android' => 'android',
+            'blackberry' => 'blackberry',
+            'webos' => 'webos'
+        ];
+
+        foreach ($os_array as $regex => $value) {
+            if ((bool) preg_match(sprintf('#%s#is', $regex), $userAgent, $matches)) {
+                return $value;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Detect which view to show based on device.
      *
      * @return void

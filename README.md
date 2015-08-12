@@ -50,7 +50,13 @@ If the view is not found for the current theme the default theme will then be se
 
 ### Facade
 
-The `DeviceView` facade can also be used if preferred `DeviceView:: setDeviceView('mobile')` by adding an entry for `Torann\DeviceView\DeviceViewFacade` to `config/app.php`.
+The `DeviceView` facade can also be used if preferred `DeviceView::setDeviceView('mobile')` by adding an entry for `Torann\DeviceView\Facades\DeviceView` to `config/app.php`.
+
+### Helper Methods
+
+**DeviceView::getPlatform()**
+
+Return the user's operating system.
 
 ## Example
 
