@@ -1,8 +1,8 @@
-<?php namespace Torann\DeviceView;
+<?php namespace Torann\DeviceView\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class DeviceViewFacade extends Facade
+class DeviceView extends Facade
 {
     /**
      * Get the registered name of the component.
