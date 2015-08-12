@@ -38,6 +38,13 @@ class FileViewFinder extends \Illuminate\View\FileViewFinder
     protected $defaultView = 'default';
 
     /**
+     * User platform
+     *
+     * @var string
+     */
+    protected $userPlatform;
+
+    /**
      * Session instance
      *
      * @var array
@@ -175,29 +182,35 @@ class FileViewFinder extends \Illuminate\View\FileViewFinder
      */
     public function getPlatform()
     {
-        $userAgent = $_SERVER['HTTP_USER_AGENT'];
+        if (! $this->userPlatform)
+        {
+            $userAgent = $_SERVER['HTTP_USER_AGENT'];
 
-        $os_array = [
-            'iphone' => 'ios',
-            'ipod' => 'ios',
-            'ipad' => 'ios',
-            'windows' => 'windows',
-            'macintosh|mac os x' => 'os-x',
-            'mac_powerpc'  => 'os-9',
-            'linux' => 'linux',
-            'ubuntu' => 'ubuntu',
-            'android' => 'android',
-            'blackberry' => 'blackberry',
-            'webos' => 'webos'
-        ];
+            $os_array = [
+                'iphone' => 'ios',
+                'ipod' => 'ios',
+                'ipad' => 'ios',
+                'windows' => 'windows',
+                'macintosh|mac os x' => 'os-x',
+                'mac_powerpc'  => 'os-9',
+                'linux' => 'linux',
+                'ubuntu' => 'ubuntu',
+                'android' => 'android',
+                'blackberry' => 'blackberry',
+                'webos' => 'webos'
+            ];
 
-        foreach ($os_array as $regex => $value) {
-            if ((bool) preg_match(sprintf('#%s#is', $regex), $userAgent, $matches)) {
-                return $value;
+            foreach ($os_array as $regex => $value)
+            {
+                if ((bool) preg_match(sprintf('#%s#is', $regex), $userAgent, $matches))
+                {
+                    $this->userPlatform = $value;
+                    break;
+                }
             }
         }
 
-        return null;
+        return $this->userPlatform;
     }
 
     /**
