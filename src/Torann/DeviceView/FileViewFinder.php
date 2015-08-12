@@ -5,63 +5,63 @@ use InvalidArgumentException;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Application;
 
-class FileViewFinder extends \Illuminate\View\FileViewFinder {
-
-	/**
-	 * View path directory
+class FileViewFinder extends \Illuminate\View\FileViewFinder
+{
+    /**
+     * View path directory
      *
-	 * @var string
-	 */
-	protected $viewPath;
+     * @var string
+     */
+    protected $viewPath;
 
-	/**
-	 * Name of device view
+    /**
+     * Name of device view
      *
-	 * @var string
-	 */
-	protected $deviceView;
+     * @var string
+     */
+    protected $deviceView;
 
-	/**
-	 * Valid Devices
+    /**
+     * Valid Devices
      *
-	 * @var array
-	 */
-	protected $devices = [
+     * @var array
+     */
+    protected $devices = [
         'default' => 'default'
     ];
 
-	/**
-	 * Default layout
+    /**
+     * Default layout
      *
-	 * @var string
-	 */
-	protected $defaultView = 'default';
+     * @var string
+     */
+    protected $defaultView = 'default';
 
-	/**
-	 * Session instance
+    /**
+     * Session instance
      *
-	 * @var array
-	 */
-	protected $session;
+     * @var array
+     */
+    protected $session;
 
-	/**
-	 * Request instance
+    /**
+     * Request instance
      *
-	 * @var array
-	 */
-	protected $request;
+     * @var array
+     */
+    protected $request;
 
-	/**
-	 * Create a new file view loader instance.
-	 *
-	 * @param  \Illuminate\Filesystem\Filesystem  $files
-	 * @param  array  $config
-	 * @param  array  $extensions
+    /**
+     * Create a new file view loader instance.
+     *
+     * @param  \Illuminate\Filesystem\Filesystem  $files
+     * @param  array  $config
+     * @param  array  $extensions
      * @param  \Illuminate\Foundation\Application $app
-	 */
-	public function __construct(Filesystem $files, array $config, array $extensions = null, Application $app)
-	{
-		parent::__construct($files, $config['paths'], $extensions);
+     */
+    public function __construct(Filesystem $files, array $config, array $extensions = null, Application $app)
+    {
+        parent::__construct($files, $config['paths'], $extensions);
 
         // Set session instance
         $this->session = $app['session'];
@@ -79,19 +79,19 @@ class FileViewFinder extends \Illuminate\View\FileViewFinder {
         $this->devices['default'] = array_get($config, 'default', 'default');
 
         // Set location
-		$this->viewPath = array_get($config, 'path');
-	}
+        $this->viewPath = array_get($config, 'path');
+    }
 
-	/**
-	 * Add a location to the finder.
-	 *
-	 * @param  string  $location
-	 * @return void
-	 */
-	public function addLocation($location)
-	{
-		array_unshift($this->paths, $location);
-	}
+    /**
+     * Add a location to the finder.
+     *
+     * @param  string  $location
+     * @return void
+     */
+    public function addLocation($location)
+    {
+        array_unshift($this->paths, $location);
+    }
 
     /**
      * Get the fully qualified location of the view.
@@ -130,32 +130,32 @@ class FileViewFinder extends \Illuminate\View\FileViewFinder {
         }
     }
 
-	/**
-	 * Get the device view type.
-	 *
-	 * @return string
-	 */
-	public function getDevice()
-	{
-		if (! $this->deviceView) {
+    /**
+     * Get the device view type.
+     *
+     * @return string
+     */
+    public function getDevice()
+    {
+        if (! $this->deviceView) {
             $this->detectDevice();
         }
 
-		return $this->deviceView;
-	}
+        return $this->deviceView;
+    }
 
-	/**
-	 * Set the view to be used over the default view.
-	 *
-	 * @param string $view
-	 * @return void
-	 */
-	public function setDeviceView($view)
-	{
-		$this->deviceView = $view;
+    /**
+     * Set the view to be used over the default view.
+     *
+     * @param string $view
+     * @return void
+     */
+    public function setDeviceView($view)
+    {
+        $this->deviceView = $view;
 
-		$this->addLocation("{$this->viewPath}/{$this->deviceView}");
-	}
+        $this->addLocation("{$this->viewPath}/{$this->deviceView}");
+    }
 
     /**
      * Determine if the device is valid.

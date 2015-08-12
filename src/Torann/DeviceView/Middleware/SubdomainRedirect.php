@@ -3,8 +3,8 @@
 use Closure;
 use Illuminate\Contracts\View\Factory;
 
-class SubdomainRedirect {
-
+class SubdomainRedirect
+{
     /**
      * Handle an incoming request.
      *
@@ -68,5 +68,4 @@ class SubdomainRedirect {
 
         return implode('.', array_reverse($registerableDomainParts));
     }
-
 }

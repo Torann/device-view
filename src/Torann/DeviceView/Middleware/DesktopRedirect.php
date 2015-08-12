@@ -45,5 +45,4 @@ class DesktopRedirect
 
         return $next($request);
     }
-
 }

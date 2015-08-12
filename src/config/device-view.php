@@ -11,7 +11,7 @@ return array(
     |
     */
 
-//	'path'    => realpath(base_path('resources/views/themes')),
+//    'path'    => realpath(base_path('resources/views/themes')),
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ return array(
     |
     */
 
-	'default' => 'default',
+    'default' => 'default',
 
     /*
     |--------------------------------------------------------------------------

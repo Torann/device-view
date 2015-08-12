@@ -45,5 +45,4 @@ class MobileRedirect
 
         return $next($request);
     }
-
 }

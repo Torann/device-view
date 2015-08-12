@@ -2,8 +2,8 @@
 
 use Illuminate\View\ViewServiceProvider;
 
-class DeviceViewServiceProvider extends ViewServiceProvider {
-
+class DeviceViewServiceProvider extends ViewServiceProvider
+{
     /**
      * Bootstrap the application events.
      *
@@ -23,7 +23,6 @@ class DeviceViewServiceProvider extends ViewServiceProvider {
     {
         $this->app->bind('view.finder', function($app) {
             return new FileViewFinder($app['files'], $app['config']['view'], null, $app);
-		});
-	}
-
+        });
+    }
 }
