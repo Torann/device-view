@@ -39,7 +39,7 @@ class MobileRedirect
     {
         if (! $request->ajax()) {
             if ($this->view->getFinder()->getDevice() === 'mobile') {
-                return redirect(route($routeString));
+                return redirect()->route($routeString);
             }
         }
 

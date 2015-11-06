@@ -39,7 +39,7 @@ class DesktopRedirect
     {
         if (! $request->ajax()) {
             if ($this->view->getFinder()->getDevice() === 'default') {
-                return redirect(route($routeString));
+                return redirect()->route($routeString);
             }
         }
 

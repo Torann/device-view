@@ -15,8 +15,8 @@
     "mobiledetect/mobiledetectlib": "2.*"
   },
   "require-dev": {
-    "mockery/mockery": "0.7.x",
-    "phpunit/phpunit": "3.7.x"
+    "phpunit/phpunit": "^4.8",
+    "mockery/mockery": "^0.9.4"
   },
   "autoload": {
     "psr-4": {
