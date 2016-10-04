@@ -4,7 +4,6 @@ Dynamically change Laravel views based on the visitor's device.
 
 ## Installation
 
-
 To get the latest version of Device View simply require it in your `composer.json` file.
 
 ```
