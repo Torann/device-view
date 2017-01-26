@@ -13,13 +13,13 @@ Dynamically change Laravel views based on the visitor's device.
 
 ## Installation
 
-To get the latest version of Device View simply require it in your `composer.json` file.
+### Composer
+
+From the command line run:
 
 ```
-"torann/device-view": "0.1.*@dev"
+composer require torann/device-view
 ```
-
-You'll then need to run `composer install` to download it and have the autoloader updated.
 
 ### Setup
 
