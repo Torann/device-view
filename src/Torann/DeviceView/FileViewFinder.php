@@ -228,7 +228,7 @@ class FileViewFinder extends \Illuminate\View\FileViewFinder
         // Allow user to override
         if($device = $this->request->get('dv')) {
             if ($this->validDevice($device)) {
-                $this->session->set('device-view', $device);
+                $this->session->put('device-view', $device);
             }
         }
 
