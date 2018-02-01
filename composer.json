@@ -2,11 +2,11 @@
   "name": "torann/device-view",
   "description": "Provides support for device based view layouts in Laravel.",
   "keywords": ["laravel", "view", "themes"],
-  "license": "BSD 2-Clause",
+  "license": "BSD-2-Clause",
   "authors": [
     {
       "name": "Daniel Stainback",
-      "email": "daniel@lyften.com"
+      "email": "torann@gmail.com"
     }
   ],
   "require": {
